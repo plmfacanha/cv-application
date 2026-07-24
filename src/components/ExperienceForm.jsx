@@ -4,8 +4,9 @@ function ExperienceForm() {
   return (
     <section className="experience-form">
       <h2>Practical Experience</h2>
+      <button>Show</button>
       <form>
-        <label htmlFor="company">Company Name</label>
+        {/* <label htmlFor="company">Company Name</label>
         <input type="text" id="company" name="company" />
 
         <label htmlFor="position">Position Title</label>
@@ -18,12 +19,7 @@ function ExperienceForm() {
         <input type="text" id="dateFrom" name="dateFrom" />
 
         <label htmlFor="dateUntil">Date Until</label>
-        <input type="text" id="dateUntil" name="dateUntil" />
-
-        <div className="submitBox">
-          <button type="submit">Submit</button>
-          <button type="submit">Edit</button>
-        </div>
+        <input type="text" id="dateUntil" name="dateUntil" /> */}
       </form>
     </section>
   );

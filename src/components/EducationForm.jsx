@@ -4,7 +4,8 @@ function EducationForm() {
   return (
     <section className="education-form">
       <h2>Education</h2>
-      <form>
+      <button>Show</button>
+      {/* <form>
         <label htmlFor="school">School Name</label>
         <input type="text" id="school" name="school" />
 
@@ -13,12 +14,7 @@ function EducationForm() {
 
         <label htmlFor="studyDate">Date of Study</label>
         <input type="text" id="studyDate" name="studyDate" />
-
-        <div className="submitBox">
-          <button type="submit">Submit</button>
-          <button type="submit">Edit</button>
-        </div>
-      </form>
+      </form> */}
     </section>
   );
 }
