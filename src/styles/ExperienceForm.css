@@ -1,0 +1,14 @@
+.experience-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+div {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
