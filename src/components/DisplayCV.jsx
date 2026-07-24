@@ -1,3 +1,13 @@
 export default function DisplayCV() {
-  return <h1> Im displaying the CV</h1>;
+  return (
+    <p
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      Im displaying the CV
+    </p>
+  );
 }

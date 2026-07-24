@@ -1,9 +1,9 @@
 // import { useState } from 'react'
-import "./App.css";
 import GeneralInfoForm from "./components/GeneralInfoForm";
 import EducationForm from "./components/EducationForm";
 import ExperienceForm from "./components/ExperienceForm";
 import DisplayCV from "./components/DisplayCV";
+import { useState } from "react";
 
 /* 
 // 1. Think about how to structure your application into components. Your application should include:
@@ -18,13 +18,28 @@ import DisplayCV from "./components/DisplayCV";
 */
 
 function App() {
+  const [activeIndex, setActiveIndex] = useState(5);
+
   return (
     <>
-      <div>
-        <h1>CV Generator</h1>
-        <GeneralInfoForm />
-        <EducationForm />
-        <ExperienceForm />
+      <div className="info">
+        <h1>CV Application</h1>
+        <GeneralInfoForm
+          isActive={activeIndex === 1}
+          onShow={() => setActiveIndex(1)}
+          onHide={() => setActiveIndex(0)}
+        />
+        <EducationForm
+          isActive={activeIndex === 2}
+          onShow={() => setActiveIndex(2)}
+          onHide={() => setActiveIndex(0)}
+        />
+        <ExperienceForm
+          isActive={activeIndex === 3}
+          onShow={() => setActiveIndex(3)}
+          onHide={() => setActiveIndex(0)}
+        />
+        <button>Submit your CV!</button>
       </div>
       <DisplayCV />
     </>
