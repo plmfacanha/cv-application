@@ -19,6 +19,7 @@ import { useState } from "react";
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(5);
+  const [visibleIndex, setVisible] = useState(5);
 
   return (
     <>
@@ -28,6 +29,7 @@ function App() {
           isActive={activeIndex === 1}
           onShow={() => setActiveIndex(1)}
           onHide={() => setActiveIndex(0)}
+          onDisplay={() => setVisible(1)}
         />
         <EducationForm
           isActive={activeIndex === 2}
@@ -39,10 +41,9 @@ function App() {
           onShow={() => setActiveIndex(3)}
           onHide={() => setActiveIndex(0)}
         />
-
         <button>Submit your CV!</button>
+        <DisplayCV isVisible={visibleIndex} />
       </div>
-      <DisplayCV />
     </>
   );
 }
