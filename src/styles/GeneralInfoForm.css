@@ -6,9 +6,3 @@
   margin: 0 auto;
   text-align: left;
 }
-
-div {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}

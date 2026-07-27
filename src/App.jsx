@@ -39,6 +39,7 @@ function App() {
           onShow={() => setActiveIndex(3)}
           onHide={() => setActiveIndex(0)}
         />
+
         <button>Submit your CV!</button>
       </div>
       <DisplayCV />
