@@ -2,7 +2,7 @@
 import "../styles/GeneralInfoForm.css";
 import { useState } from "react";
 
-function GeneralInfoForm({ isActive, onShow, onHide }) {
+function GeneralInfoForm({ isActive, onShow, onHide, onDisplay }) {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
   const [touched, setTouched] = useState({
     name: false,
@@ -71,7 +71,11 @@ function GeneralInfoForm({ isActive, onShow, onHide }) {
               title="Phone number must be exactly 10 digits"
               required
             />
-            <button type="submit" disabled={!allFieldsFilled}>
+            <button
+              type="submit"
+              onClick={onDisplay}
+              disabled={!allFieldsFilled}
+            >
               Save
             </button>
           </form>

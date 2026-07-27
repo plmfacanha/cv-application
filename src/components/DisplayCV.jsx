@@ -1,9 +1,5 @@
 import "../styles/DisplayCV.css";
 
-export default function DisplayCV() {
-  return (
-    <>
-      <p>Whatever</p>
-    </>
-  );
+export default function DisplayCV({ isVisible }) {
+  return <>{isVisible && <p>Whatever</p>}</>;
 }
