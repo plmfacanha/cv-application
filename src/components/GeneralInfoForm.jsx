@@ -67,8 +67,9 @@ function GeneralInfoForm({ isActive, onShow, onHide }) {
               onChange={handleChange}
               onBlur={handleBlur}
               className={touched.phone ? "touched" : ""}
+              pattern="[0-9]{10}"
+              title="Phone number must be exactly 10 digits"
               required
-              minLength="10"
             />
             <button type="submit" disabled={!allFieldsFilled}>
               Save
