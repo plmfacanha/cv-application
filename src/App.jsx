@@ -1,8 +1,5 @@
 // import { useState } from 'react'
-import GeneralInfoForm from "./components/GeneralInfoForm";
-import EducationForm from "./components/EducationForm";
-import ExperienceForm from "./components/ExperienceForm";
-import DisplayCV from "./components/DisplayCV";
+
 import { useState } from "react";
 
 /* 
@@ -26,7 +23,7 @@ function App() {
   return (
     <div>
       <p>{count}</p>
-      <button onClick={() => setCount((count) => count + 1)}></button>
+      <button onClick={() => setCount((count) => count + 1)}>Count + 1</button>
     </div>
   );
 }
