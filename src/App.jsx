@@ -21,39 +21,13 @@ import { useState } from "react";
 */
 
 function App() {
-  const [activeIndex, setActiveIndex] = useState(5);
-  const [visibleIndex, setVisibleIndex] = useState(0);
-  const [formName, setFormName] = useState("");
+  const [count, setCount] = useState(0);
 
   return (
-    <>
-      <div className="info">
-        <div>
-          <h1>CV Application</h1>
-          <GeneralInfoForm
-            isActive={activeIndex === 1}
-            onShow={() => setActiveIndex(1)}
-            onHide={() => setActiveIndex(0)}
-            onDisplay={() => setVisibleIndex(1)}
-            formName={() => setFormName("general")}
-          />
-          <EducationForm
-            isActive={activeIndex === 2}
-            onShow={() => setActiveIndex(2)}
-            onHide={() => setActiveIndex(0)}
-            formName={() => setFormName("education")}
-          />
-          <ExperienceForm
-            isActive={activeIndex === 3}
-            onShow={() => setActiveIndex(3)}
-            onHide={() => setActiveIndex(0)}
-            formName={() => setFormName("experience")}
-          />
-          <button>Submit your CV!</button>
-        </div>
-        <DisplayCV isVisible={visibleIndex === 1} formName={formName} />
-      </div>
-    </>
+    <div>
+      <p>{count}</p>
+      <button onClick={() => setCount((count) => count + 1)}></button>
+    </div>
   );
 }
 
