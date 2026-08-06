@@ -13,36 +13,45 @@ import { useState } from "react";
   // 3. Create a components directory under your src directory and add your components.
   //  4. Include a styles directory under your src directory for your CSS files. You’ll need to import these in the component files to use them.
 
-? 2. Be sure to include an edit and submit button for each section or for the whole CV. The submit button should submit your form and display the value of your input fields in HTML elements. The edit button should add back (display) the input fields, with the previously displayed information as values. In those input fields, you should be able to edit and resubmit the content. You’re going to make heavy use of state and props, so make sure you understood those concepts.
+? 2. Include an edit and submit button for each section or for the whole CV. 
+? 2.1 The submit button should submit your form and display the value of your input fields in HTML elements. 
+? 2.2 The edit button should add back (display) the input fields, with the previously displayed information as values. 
+? 2.3 In those input fields, you should be able to edit and resubmit the content. You’re going to make heavy use of state and props, so make sure you understood those concepts.
 ? 5. Push the results and deploy them with any of the options mentioned below. At this point of the curriculum, it doesn’t matter which platform you choose as long as your project is live on the internet!
 */
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(5);
   const [visibleIndex, setVisibleIndex] = useState(0);
+  const [formName, setFormName] = useState("");
 
   return (
     <>
       <div className="info">
-        <h1>CV Application</h1>
-        <GeneralInfoForm
-          isActive={activeIndex === 1}
-          onShow={() => setActiveIndex(1)}
-          onHide={() => setActiveIndex(0)}
-          onDisplay={() => setVisibleIndex(1)}
-        />
-        <EducationForm
-          isActive={activeIndex === 2}
-          onShow={() => setActiveIndex(2)}
-          onHide={() => setActiveIndex(0)}
-        />
-        <ExperienceForm
-          isActive={activeIndex === 3}
-          onShow={() => setActiveIndex(3)}
-          onHide={() => setActiveIndex(0)}
-        />
-        <button>Submit your CV!</button>
-        <DisplayCV isVisible={visibleIndex === 1} />
+        <div>
+          <h1>CV Application</h1>
+          <GeneralInfoForm
+            isActive={activeIndex === 1}
+            onShow={() => setActiveIndex(1)}
+            onHide={() => setActiveIndex(0)}
+            onDisplay={() => setVisibleIndex(1)}
+            formName={() => setFormName("general")}
+          />
+          <EducationForm
+            isActive={activeIndex === 2}
+            onShow={() => setActiveIndex(2)}
+            onHide={() => setActiveIndex(0)}
+            formName={() => setFormName("education")}
+          />
+          <ExperienceForm
+            isActive={activeIndex === 3}
+            onShow={() => setActiveIndex(3)}
+            onHide={() => setActiveIndex(0)}
+            formName={() => setFormName("experience")}
+          />
+          <button>Submit your CV!</button>
+        </div>
+        <DisplayCV isVisible={visibleIndex === 1} formName={formName} />
       </div>
     </>
   );
