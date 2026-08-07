@@ -1,6 +1,7 @@
 // import { useState } from 'react'
 
 import { useState } from "react";
+import GeneralForm from "./components/GeneralForm";
 
 /* 
 // 1. Think about how to structure your application into components. Your application should include:
@@ -18,13 +19,12 @@ import { useState } from "react";
 */
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div>
-      <p>{count}</p>
-      <button onClick={() => setCount((count) => count + 1)}>Count + 1</button>
-    </div>
+    <section>
+      <GeneralForm />
+      <EducationForm />
+      <ExperienceForm />
+    </section>
   );
 }
 
