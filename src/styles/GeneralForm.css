@@ -6,3 +6,7 @@ form {
   margin: 0 auto;
   text-align: left;
 }
+
+.hideBtn {
+  width: 50px;
+}

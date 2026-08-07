@@ -1,6 +1,6 @@
 // import { useState } from 'react'
 
-// import { useState } from "react";
+import { useState } from "react";
 import GeneralForm from "./components/GeneralForm";
 import EducationForm from "./components/EducationForm";
 import ExperienceForm from "./components/ExperienceForm";
@@ -15,13 +15,19 @@ import "./App.css";
 */
 
 function App() {
+  const [visibleIndex, setVisibleIndex] = useState(0);
+
   return (
     <div className="main">
       <h1>CV Generator</h1>
       <section>
-        <GeneralForm />
-        <EducationForm />
-        <ExperienceForm />
+        <GeneralForm
+          isVisible={visibleIndex === 1}
+          handleShow={() => setVisibleIndex(1)}
+          handleHide={() => setVisibleIndex(0)}
+        />
+        <EducationForm isVisible={visibleIndex === 2} />
+        <ExperienceForm isVisible={visibleIndex === 3} />
       </section>
     </div>
   );
