@@ -4,6 +4,7 @@ import { useState } from "react";
 import GeneralForm from "./components/GeneralForm";
 import EducationForm from "./components/EducationForm";
 import ExperienceForm from "./components/ExperienceForm";
+import DisplayCV from "./components/DisplayCV";
 import "./App.css";
 
 /* 
@@ -28,6 +29,9 @@ function App() {
         />
         <EducationForm isVisible={visibleIndex === 2} />
         <ExperienceForm isVisible={visibleIndex === 3} />
+      </section>
+      <section>
+        <DisplayCV />
       </section>
     </div>
   );
