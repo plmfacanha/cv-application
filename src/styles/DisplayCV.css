@@ -1,0 +1,9 @@
+.resume {
+  display: flex;
+  flex-direction: column;
+  background-color: gray;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 10px;
+  max-width: 400px;
+}

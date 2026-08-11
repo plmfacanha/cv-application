@@ -17,6 +17,22 @@ import "./App.css";
 
 function App() {
   const [visibleIndex, setVisibleIndex] = useState(0);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+
+  function handleSave(e) {
+    e.preventDefault();
+
+    setForm((prev) => ({
+      ...prev,
+      name: e.target.name.value,
+      email: e.target.email.value,
+      phone: e.target.phone.value,
+    }));
+  }
 
   return (
     <div className="main">
@@ -27,6 +43,7 @@ function App() {
             isVisible={visibleIndex === 1}
             handleShow={() => setVisibleIndex(1)}
             handleHide={() => setVisibleIndex(0)}
+            handleSave={handleSave}
           />
           <EducationForm isVisible={visibleIndex === 2} />
           <ExperienceForm isVisible={visibleIndex === 3} />

@@ -1,10 +1,15 @@
 import "../styles/GeneralForm.css";
 
-export default function GeneralForm({ isVisible, handleShow, handleHide }) {
+export default function GeneralForm({
+  isVisible,
+  handleShow,
+  handleHide,
+  handleSave,
+}) {
   return (
     <>
       {isVisible ? (
-        <form action="">
+        <form onSubmit={handleSave}>
           <label htmlFor="name">Name: </label>
           <input type="text" name="name" />
 
@@ -14,7 +19,7 @@ export default function GeneralForm({ isVisible, handleShow, handleHide }) {
           <label htmlFor="phone">Phone: </label>
           <input type="tel" name="phone" />
 
-          <button>Save</button>
+          <button type="submit">Save</button>
           <button className="hideBtn" onClick={handleHide}>
             Hide
           </button>
