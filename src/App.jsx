@@ -26,6 +26,17 @@ function App() {
   function handleSave(e) {
     e.preventDefault();
 
+    const currentForm = e.target;
+    const formData = new FormData(currentForm);
+
+    // true only if every field is empty
+    // const isBlank = [...formData.values()].some((value) => value.trim() === "");
+
+    if (isBlank) {
+      alert("please fill out blank inputs!");
+      return;
+    }
+
     setForm((prev) => ({
       ...prev,
       name: e.target.name.value,
@@ -44,11 +55,12 @@ function App() {
             handleShow={() => setVisibleIndex(1)}
             handleHide={() => setVisibleIndex(0)}
             handleSave={handleSave}
+            form={form}
           />
           <EducationForm isVisible={visibleIndex === 2} />
           <ExperienceForm isVisible={visibleIndex === 3} />
         </div>
-        <DisplayCV />
+        <DisplayCV form={form} />
       </section>
     </div>
   );
