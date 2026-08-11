@@ -8,7 +8,7 @@ import DisplayCV from "./components/DisplayCV";
 import "./App.css";
 
 /* 
-? 2. Include an edit and submit button for each section or for the whole CV. 
+* 2. Include an edit and save button for each section of the forms section.
 ? 2.1 The save button should save your form and display the value of your input fields in HTML elements on a side section of the page.
 ? 2.2 The edit button should add back (display) the input fields, with the previously displayed information as values. 
 ? 2.3 In those input fields, you should be able to edit and resubmit the content. You’re going to make heavy use of state and props, so make sure you understood those concepts.
@@ -22,15 +22,15 @@ function App() {
     <div className="main">
       <h1>CV Generator</h1>
       <section>
-        <GeneralForm
-          isVisible={visibleIndex === 1}
-          handleShow={() => setVisibleIndex(1)}
-          handleHide={() => setVisibleIndex(0)}
-        />
-        <EducationForm isVisible={visibleIndex === 2} />
-        <ExperienceForm isVisible={visibleIndex === 3} />
-      </section>
-      <section>
+        <div className="forms">
+          <GeneralForm
+            isVisible={visibleIndex === 1}
+            handleShow={() => setVisibleIndex(1)}
+            handleHide={() => setVisibleIndex(0)}
+          />
+          <EducationForm isVisible={visibleIndex === 2} />
+          <ExperienceForm isVisible={visibleIndex === 3} />
+        </div>
         <DisplayCV />
       </section>
     </div>
