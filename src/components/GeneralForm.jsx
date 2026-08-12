@@ -1,26 +1,36 @@
 import "../styles/GeneralForm.css";
+import GeneralData from "./GeneralData";
+// import { useState } from "react";
 
 export default function GeneralForm({
   form,
   isVisible,
+  isSubmit,
   handleShow,
   handleHide,
   handleSave,
 }) {
+  function handleEdit(e) {
+    console.log(e.target);
+  }
+
   return (
     <>
       {isVisible ? (
         <form onSubmit={handleSave}>
-          <label htmlFor="name">Name: </label>
-          <input type="text" name="name" defaultValue={form.name} required />
-
-          <label htmlFor="email">Email: </label>
-          <input type="email" name="email" defaultValue={form.email} required />
-
-          <label htmlFor="phone">Phone: </label>
-          <input type="tel" name="phone" defaultValue={form.phone} required />
-
-          <button type="submit">Save</button>
+          {isSubmit ? (
+            <>
+              <GeneralData form={form} isSubmit={isSubmit} />
+              <button type="button" onClick={handleEdit}>
+                Edit
+              </button>
+            </>
+          ) : (
+            <>
+              <GeneralData form={form} isSubmit={isSubmit} />
+              <button type="submit">Save</button>
+            </>
+          )}
           <button className="hideBtn" onClick={handleHide}>
             Hide
           </button>

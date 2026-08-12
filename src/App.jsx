@@ -17,6 +17,7 @@ import "./App.css";
 
 function App() {
   const [visibleIndex, setVisibleIndex] = useState(0);
+  const [isSubmit, setSubmit] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -29,20 +30,14 @@ function App() {
     const currentForm = e.target;
     const formData = new FormData(currentForm);
 
-    // true only if every field is empty
-    // const isBlank = [...formData.values()].some((value) => value.trim() === "");
-
-    if (isBlank) {
-      alert("please fill out blank inputs!");
-      return;
-    }
-
     setForm((prev) => ({
       ...prev,
-      name: e.target.name.value,
-      email: e.target.email.value,
-      phone: e.target.phone.value,
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
     }));
+
+    setSubmit(true);
   }
 
   return (
@@ -52,6 +47,7 @@ function App() {
         <div className="forms">
           <GeneralForm
             isVisible={visibleIndex === 1}
+            isSubmit={isSubmit}
             handleShow={() => setVisibleIndex(1)}
             handleHide={() => setVisibleIndex(0)}
             handleSave={handleSave}
