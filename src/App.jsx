@@ -37,6 +37,10 @@ function App() {
       phone: formData.get("phone"),
     }));
 
+    currentForm
+      .querySelectorAll("input")
+      .forEach((input) => (input.disabled = true));
+
     setSubmit(true);
   }
 

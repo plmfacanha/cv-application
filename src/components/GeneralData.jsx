@@ -1,8 +1,4 @@
 export default function GeneralData({ form, isSubmit }) {
-  if (isSubmit) {
-    console.log(form);
-  }
-
   return (
     <>
       <label htmlFor="name">Name: </label>
