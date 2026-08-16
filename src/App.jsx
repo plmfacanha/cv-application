@@ -16,24 +16,21 @@ import "./App.css";
 */
 
 function App() {
-  const [visibleIndex, setVisibleIndex] = useState(0);
-  const [isComplete, setComplete] = useState([]);
-
-  const [isSubmit, setSubmit] = useState(false);
+  const [visibleIndex, setVisibleIndex] = useState(5);
+  const [isSubmit, setSubmit] = useState([false, false, false]);
+  const [clearBtn, setClearBtn] = useState(true);
   const [generalForm, setGeneralForm] = useState({
     name: "",
     email: "",
     phone: "",
   });
 
-  const [isEducationSubmit, setEducationSubmit] = useState(false);
   const [educationForm, setEducationForm] = useState({
     school: "",
     title: "",
     studyDate: "",
   });
 
-  const [isExperienceSubmit, setExperienceSubmit] = useState(false);
   const [experienceForm, setExperienceForm] = useState({
     company: "",
     position: "",
@@ -42,7 +39,7 @@ function App() {
     dateUntil: "",
   });
 
-  function handleSave(e) {
+  function handleGeneralSave(e) {
     e.preventDefault();
 
     const currentForm = e.target;
@@ -55,13 +52,9 @@ function App() {
       phone: formData.get("phone"),
     }));
 
-    setSubmit(!isSubmit);
-  }
-
-  function handleEdit(e) {
-    e.preventDefault();
-
-    setSubmit(!isSubmit);
+    setSubmit((prev) =>
+      prev.map((item, index) => (index === visibleIndex ? !item : item)),
+    );
   }
 
   function handleEducationSave(e) {
@@ -77,13 +70,9 @@ function App() {
       studyDate: formData.get("studyDate"),
     }));
 
-    setEducationSubmit(!isEducationSubmit);
-  }
-
-  function handleEducationEdit(e) {
-    e.preventDefault();
-
-    setEducationSubmit(!isEducationSubmit);
+    setSubmit((prev) =>
+      prev.map((item, index) => (index === visibleIndex ? !item : item)),
+    );
   }
 
   function handleExperienceSave(e) {
@@ -101,13 +90,17 @@ function App() {
       dateUntil: formData.get("dateUntil"),
     }));
 
-    setExperienceSubmit(!isExperienceSubmit);
+    setSubmit((prev) =>
+      prev.map((item, index) => (index === visibleIndex ? !item : item)),
+    );
   }
 
-  function handleExperienceEdit(e) {
+  function handleEdit(e) {
     e.preventDefault();
 
-    setExperienceSubmit(!isExperienceSubmit);
+    setSubmit((prev) =>
+      prev.map((item, index) => (index === visibleIndex ? !item : item)),
+    );
   }
 
   return (
@@ -118,30 +111,30 @@ function App() {
           <div className="col-md-6">
             <GeneralForm
               form={generalForm}
-              isVisible={visibleIndex === 1}
-              isSubmit={isSubmit}
-              handleShow={() => setVisibleIndex(1)}
-              handleHide={() => setVisibleIndex(0)}
-              handleSave={handleSave}
+              isVisible={visibleIndex === 0}
+              isSubmit={isSubmit[0]}
+              handleShow={() => setVisibleIndex(0)}
+              handleHide={() => setVisibleIndex(5)}
+              handleSave={handleGeneralSave}
               handleEdit={handleEdit}
             />
             <EducationForm
               form={educationForm}
-              isVisible={visibleIndex === 2}
-              isSubmit={isEducationSubmit}
-              handleShow={() => setVisibleIndex(2)}
-              handleHide={() => setVisibleIndex(0)}
+              isVisible={visibleIndex === 1}
+              isSubmit={isSubmit[1]}
+              handleShow={() => setVisibleIndex(1)}
+              handleHide={() => setVisibleIndex(5)}
               handleSave={handleEducationSave}
-              handleEdit={handleEducationEdit}
+              handleEdit={handleEdit}
             />
             <ExperienceForm
               form={experienceForm}
-              isVisible={visibleIndex === 3}
-              isSubmit={isExperienceSubmit}
-              handleShow={() => setVisibleIndex(3)}
-              handleHide={() => setVisibleIndex(0)}
+              isVisible={visibleIndex === 2}
+              isSubmit={isSubmit[2]}
+              handleShow={() => setVisibleIndex(2)}
+              handleHide={() => setVisibleIndex(5)}
               handleSave={handleExperienceSave}
-              handleEdit={handleExperienceEdit}
+              handleEdit={handleEdit}
             />
           </div>
           <div className="col-md-6">
@@ -152,7 +145,7 @@ function App() {
             />
           </div>
           <div className="col-12 mt-3">
-            <button className="btn btn-danger w-100" disabled={true}>
+            <button className="btn btn-danger w-100" disabled={clearBtn}>
               Clear
             </button>
           </div>
