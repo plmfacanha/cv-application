@@ -1,8 +1,0 @@
-.education-form form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  max-width: 400px;
-  margin: 0 auto;
-  text-align: left;
-}

@@ -1,6 +1,4 @@
-import "../styles/GeneralForm.css";
 import GeneralData from "./GeneralData";
-// import { useState } from "react";
 
 export default function GeneralForm({
   form,
@@ -12,30 +10,45 @@ export default function GeneralForm({
   handleEdit,
 }) {
   return (
-    <>
+    <div className="card p-3 mb-3">
       {isVisible ? (
         <form onSubmit={isSubmit ? handleEdit : handleSave}>
+          <h2 className="h5">General Information</h2>
           {isSubmit ? (
             <>
               <GeneralData form={form} isSubmit={isSubmit} />
-              <button type="submit">Edit</button>
+              <button type="submit" className="btn btn-primary me-2">
+                Edit
+              </button>
             </>
           ) : (
             <>
               <GeneralData form={form} isSubmit={isSubmit} />
-              <button type="submit">Save</button>
+              <button type="submit" className="btn btn-primary me-2">
+                Save
+              </button>
             </>
           )}
-          <button className="hideBtn" onClick={handleHide}>
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={handleHide}
+          >
             Hide
           </button>
         </form>
       ) : (
         <div>
           <p>This is the General Information Form</p>
-          <button onClick={handleShow}>Show</button>
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={handleShow}
+          >
+            Show
+          </button>
         </div>
       )}
-    </>
+    </div>
   );
 }
