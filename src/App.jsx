@@ -37,11 +37,13 @@ function App() {
       phone: formData.get("phone"),
     }));
 
-    currentForm
-      .querySelectorAll("input")
-      .forEach((input) => (input.disabled = true));
+    setSubmit(!isSubmit);
+  }
 
-    setSubmit(true);
+  function handleEdit(e) {
+    e.preventDefault();
+
+    setSubmit(!isSubmit);
   }
 
   return (
@@ -50,12 +52,13 @@ function App() {
       <section>
         <div className="forms">
           <GeneralForm
+            form={form}
             isVisible={visibleIndex === 1}
             isSubmit={isSubmit}
             handleShow={() => setVisibleIndex(1)}
             handleHide={() => setVisibleIndex(0)}
             handleSave={handleSave}
-            form={form}
+            handleEdit={handleEdit}
           />
           <EducationForm isVisible={visibleIndex === 2} />
           <ExperienceForm isVisible={visibleIndex === 3} />

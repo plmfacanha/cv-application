@@ -9,21 +9,16 @@ export default function GeneralForm({
   handleShow,
   handleHide,
   handleSave,
+  handleEdit,
 }) {
-  function handleEdit(e) {
-    console.log(e.target);
-  }
-
   return (
     <>
       {isVisible ? (
-        <form onSubmit={handleSave}>
+        <form onSubmit={isSubmit ? handleEdit : handleSave}>
           {isSubmit ? (
             <>
               <GeneralData form={form} isSubmit={isSubmit} />
-              <button type="button" onClick={handleEdit}>
-                Edit
-              </button>
+              <button type="submit">Edit</button>
             </>
           ) : (
             <>
