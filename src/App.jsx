@@ -15,8 +15,8 @@ TODO: Create a CV Generator App that displays the form fields values in HTML on 
 // * 2.2 The edit button should add back (display) the input fields, with the previously displayed information as values.
 // * 2.3 In those input fields, you should be able to edit and resubmit the content. You’re going to make heavy use of state and props, so make sure you understood those concepts.
 // * 2.4 Create a clear button.
-* 2.4.1 Trigger a function (handleClear()) when ClearButton is clicked and erase all the form fields.
-5. Push the results and deploy them with any of the options mentioned below. At this point of the curriculum, it doesn’t matter which platform you choose as long as your project is live on the internet!
+// * 2.4.1 Trigger a function (handleClear()) when ClearButton is clicked and erase all the form fields.
+// ? 5. Push the results and deploy them with any of the options mentioned below. At this point of the curriculum, it doesn’t matter which platform you choose as long as your project is live on the internet!
 */
 
 function App() {
