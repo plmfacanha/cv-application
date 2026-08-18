@@ -65,6 +65,7 @@ function App() {
   function handleEducationSave(e) {
     e.preventDefault();
 
+    // * Turning the current element (e.target) into a FormData
     const currentForm = e.target;
     const formData = new FormData(currentForm);
 
@@ -101,7 +102,7 @@ function App() {
   }
 
   function handleEdit(e) {
-    e.preventDefault(); // * Ensure the form is not submitted every click
+    e.preventDefault(); // ! Ensure the form is not submitted every click
 
     setSubmit((prev) =>
       prev.map((item, index) => (index === visibleIndex ? !item : item)),
@@ -109,12 +110,38 @@ function App() {
   }
 
   function handleClear() {
-    // TODO: Clear all input's value when this function is triggered
+    // TODO: Clear all form input's value when this function is triggered
 
-    // ? Test version to check if function is being triggered when button is clicked
-    console.log(
-      "Clicked! This will trigger a function that cleans all the form fields!",
-    );
+    setGeneralForm((prev) => {
+      console.log("General Form erased!");
+      return {
+        ...prev,
+        name: "",
+        email: "",
+        phone: "",
+      };
+    });
+
+    setEducationForm((prev) => {
+      console.log("Education Form erased!");
+      return { ...prev, school: "", title: "", studyDate: "" };
+    });
+
+    setExperienceForm((prev) => {
+      console.log("Experience Form erased!");
+      return {
+        ...prev,
+        company: "",
+        position: "",
+        responsibilities: "",
+        dateFrom: "",
+        dateUntil: "",
+      };
+    });
+
+    setSubmit((prev) => prev.map((item) => !item));
+
+    setVisibleIndex(5);
   }
 
   return (

@@ -6,7 +6,7 @@ export default function ClearButton({ isComplete, handleClear }) {
         disabled={!isComplete}
         onClick={handleClear}
       >
-        {isComplete ? "Clear" : "Loading.."}
+        {isComplete ? "Clear" : "Filling up form.."}
       </button>
     </>
   );
