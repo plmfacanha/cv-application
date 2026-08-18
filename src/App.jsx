@@ -5,20 +5,24 @@ import GeneralForm from "./components/GeneralForm";
 import EducationForm from "./components/EducationForm";
 import ExperienceForm from "./components/ExperienceForm";
 import DisplayCV from "./components/DisplayCV";
+import ClearButton from "./components/ClearButton";
 import "./App.css";
 
 /*
-// ? 2. Include an edit and save button for each section of the forms section.
-// ? 2.1 The save button should save your form and display the value of your input fields in HTML elements on a side section of the page.
-// ? 2.2 The edit button should add back (display) the input fields, with the previously displayed information as values.
-// ? 2.3 In those input fields, you should be able to edit and resubmit the content. You’re going to make heavy use of state and props, so make sure you understood those concepts.
+// 2. Include an edit and save button for each section of the forms section.
+// 2.1 The save button should save your form and display the value of your input fields in HTML elements on a side section of the page.
+// 2.2 The edit button should add back (display) the input fields, with the previously displayed information as values.
+// 2.3 In those input fields, you should be able to edit and resubmit the content. You’re going to make heavy use of state and props, so make sure you understood those concepts.
+// * 2.4 Create a clear button.
+* 2.4.1 Trigger a function when ClearButton is clicked and erase all the form fields.
 ? 5. Push the results and deploy them with any of the options mentioned below. At this point of the curriculum, it doesn’t matter which platform you choose as long as your project is live on the internet!
 */
 
 function App() {
   const [visibleIndex, setVisibleIndex] = useState(5);
   const [isSubmit, setSubmit] = useState([false, false, false]);
-  const [clearBtn, setClearBtn] = useState(true);
+  const isComplete = isSubmit.every((item) => item === true);
+
   const [generalForm, setGeneralForm] = useState({
     name: "",
     email: "",
@@ -103,6 +107,12 @@ function App() {
     );
   }
 
+  function handleClear() {
+    console.log(
+      "Clicked! This will trigger a function that cleans all the form fields!",
+    );
+  }
+
   return (
     <div className="main">
       <h1 className="text-center my-4 text-white">CV Generator</h1>
@@ -145,9 +155,7 @@ function App() {
             />
           </div>
           <div className="col-12 mt-3">
-            <button className="btn btn-danger w-100" disabled={clearBtn}>
-              Clear
-            </button>
+            <ClearButton isComplete={isComplete} handleClear={handleClear} />
           </div>
         </div>
       </section>
